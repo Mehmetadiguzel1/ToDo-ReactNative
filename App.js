@@ -4,9 +4,16 @@ import Task from './components/Task';
 
 export default function App() {
   const [task, setTask] = useState();
+  const [tasksItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
-    consol.log(task);
+    setTaskItems([...tasksItems, task])
+    setTask(null);
+  }
+  const completeTask = (index) => {
+    let itemsCopy = [...tasksItems];
+    itemsCopy.splice(index, 1);
+    setTaskItems(itemsCopy);
   }
 
 
@@ -20,9 +27,11 @@ export default function App() {
         <Text style={styles.sectionTitle}>ToDo List </Text>
         <View style={styles.items}>
           {/* This is where the tasks */}
-        
-        <Task text={'Tasks 1'}/>
-        <Task text={'Tasks 2'}/>
+        {
+          tasksItems.map((item, index) => {
+            return <Task key={index} text={item}/>
+          })
+        }
         </View>
       </View>
       {/* Write notes */}
