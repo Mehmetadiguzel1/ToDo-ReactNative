@@ -29,7 +29,7 @@ export default function App() {
       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.writeTaskWrapper}>
 
-        <TextInput styles={styles.input} placeholder={'Note yaz'} value={task} onChangeText={text => setTask(text)} />
+        <TextInput style={styles.input} placeholder={'Note yaz'} value={task} onChangeText={text => setTask(text)} placeholderTextColor="#FF730F"/>
 
         <TouchableOpacity onPress={() => handleAddTask()} >
           <View style={styles.addWrapper}>
@@ -45,7 +45,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8EAED',
+    backgroundColor: '#010101',
   },
   tasksWrapper: {
     padding: 80,
@@ -72,12 +72,16 @@ const styles = StyleSheet.create({
     width: 250,
     paddingVertical: 15,
     paddingHorizontal: 15,
-    backgroundColor: 'red',
+    backgroundColor: '#C0C0C0',
     borderRadius: 60,
-    borderColor: '#C0C0C0',
-    borderWidth: 3
+    borderColor: '#FF730F',
+    borderWidth: 1,
+    fontSize: 15,
+    fontWeight: 'bold',
+    
     
   },
+  
   addWrapper: {
     width: 60,
     height: 60,
@@ -85,7 +89,11 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
+    borderColor: '#FF730F',
+    borderWidth: 1,
 
   },
-  addText: {},
+  addText: {
+    color: '#FF730F'
+  },
 });
